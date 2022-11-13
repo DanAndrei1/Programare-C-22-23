@@ -1,42 +1,42 @@
 #include<stdio.h>
 int main()
 {
-  string numbers[] = {"", "one", "two", "three", "four", "five", "six", 
-"seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", 
-"fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "ninteteen"};
- 
-  string tens[] = {"", "", "twenty", "thrity", "fourty", "fifty", 
-"sixty", "seventy", "eighty", "ninty"};
-
-  int n;
+  int n, v[100];
   
+  printf("Enter the array size:");
+  int valid = 1;
   do
   {
-  	scanf("%d", &n);
-	if (n<1 || n>999) printf("Invalid input!\n");
+	valid = 1;
+       	scanf("%d", &n);
+        if ((n<2 || n>100) && valid) {printf("Invalid input!\n"); 
+valid=0;}
   }
-  while (n);
+  while (valid == 0);
 
-  if (n>=100)
+  for (int i=0; i<n; i++)
+{
+  printf("\nEnter element %d of array:", i+1);
+  do
   {
-	printf("%s hundred", numbers[n/100]);
-	n/=10;
-	if (n>100) printf(" and ");
-	n-= (n/100*100);
+	valid=1;
+        int a = scanf("%d", &v[i]);	       
+  	if(a != 1 && valid)
+	{printf("Invalid input!\n"); valid=0;}
+  }
+  while (valid == 0);
+}
+
+  int valmin = v[0];
+  int valmax = v[0];
+  for (int i=0; i<n; i++)
+  {
+	if (v[i]>valmax) valmax = v[i];
+	if (v[i]<valmin) valmin = v[i];
   }
 
-  if (n>20)  
-  {
-
-	printf("%s", tens[n/10]);
-	n%=10;
-        printf(" ");
-	printf("%s", numbers[n]);
-  }
-  else
-  {
-	printf("%s", numbers[n])	
-  } 
+  printf("The largest element of the array is: %d\n", valmax);
+  printf("The smallest element of the array is: %d\n", valmin);	
 
   return 0;
 }
