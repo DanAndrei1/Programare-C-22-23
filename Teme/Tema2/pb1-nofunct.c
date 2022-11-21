@@ -1,4 +1,20 @@
 #include<stdio.h>
+
+int getvalidnumber()
+{
+	int n;
+	while (1)
+	{
+	  if (scanf("%d", &n) == 1)
+		return n;
+  	  else 
+	  {
+	     printf("Input is not a number! \n");
+	     scanf("%d", &n);
+	  }
+	}
+}
+
 int main()
 {
   int n, v[100];
@@ -17,14 +33,7 @@ valid=0;}
   for (int i=0; i<n; i++)
 {
   printf("\nEnter element %d of array:", i+1);
-  do
-  {
-	valid=1;
-        int a = scanf("%d", &v[i]);	       
-  	if(a != 1 && valid)
-	{printf("Invalid input!\n"); valid=0;}
-  }
-  while (valid == 0);
+  v[i] = getvalidnumber();	
 }
 
   int valmin = v[0];
