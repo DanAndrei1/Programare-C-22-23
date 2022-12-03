@@ -15,16 +15,26 @@ int minim (int v[], int l)
   return mn;
 }
 
+int getvalidnumber()
+{
+     	int n;
+	if (scanf("%d", &n) == 1) return n;
+	else
+	  printf("Invalid input!\n");
+	  return;
+}
+
 int v[100], n;
 
 int main()
 {
   printf("Enter the array size: ");
-  scanf("%d", &n);
+  n = getvalidnumber();
   for (int i=0; i<n; i++)
   {	printf("Enter element %d of array: ", i+1);
-	scanf("%d", &v[i]);
+	v[i] = getvalidnumber();
   }
   printf("The largest element is: %d \n", maxim (v, n));
   printf("The smallest element is: %d \n", minim (v, n));
+  return 0;
 }
