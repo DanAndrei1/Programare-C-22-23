@@ -7,8 +7,7 @@ int getvalidnumber()
 		return n;
   	else 
 	{
-	     printf("Input is not a number! \n");
-	     return;
+	     printf("Invalid input! \n");
 	}
 }
 

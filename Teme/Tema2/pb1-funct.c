@@ -20,8 +20,7 @@ int getvalidnumber()
      	int n;
 	if (scanf("%d", &n) == 1) return n;
 	else
-	  printf("Invalid input!\n");
-	  return;
+	printf("Invalid input!\n");  
 }
 
 int v[100], n;
